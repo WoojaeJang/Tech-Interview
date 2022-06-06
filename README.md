@@ -2,12 +2,11 @@
 빅데이터 엔지니어로 취업을 준비하며 기술 면접을 위한 CS 지식 정리
 
 ## 목차
-- [1. 스택 큐](#1-스택-큐)
+- [1. 스택과 큐](#1-스택과-큐)
 - [2. Deque](#2-deque)
 - [3. 자료형 종류](#3-자료형-종류)
-- [리스트, 세트, 딕셔너리]()
-- [내장함수 외장함수 사용자정의함수]()
-- [메소드와 함수 차이]()
+- [4. 함수의 종류](#4-함수의-종류)
+- [5. 메소드와 함수](#5-메소드와-함수)
 - [SpringBoot request 처리 과정]()
 - [디자인 패턴]()
 - [MVC]()
@@ -15,6 +14,7 @@
 - [SQL JOIN]()
 - [SQL 서브쿼리]()
 
+<br/>
 
 ## 1. 스택과 큐
 
@@ -27,6 +27,7 @@
 	- push
 	- peek
 	- pop
+
 <br/>
 
 #### 큐(Queue)
@@ -38,6 +39,7 @@
 	- put
 	- peek
 	- get
+
 <br/>
 
 
@@ -55,6 +57,9 @@
     - deque.remove(item): item을 데크에서 찾아 삭제한다.
     - deque.rotate(num): 데크를 num만큼 회전한다(양수면 오른쪽, 음수면 왼쪽).
 
+<br/>
+
+
 ## 3. 자료형 종류
 
 #### 기본 자료형
@@ -65,6 +70,8 @@
 - 논리형
     - bool (True / False)
 
+<br/>
+
 #### 군집 자료형
 - 시퀀스(Sequence) 형태 : 순서가 중요
     - str (문자열) : 문자열을 위한 list와 같은 객체 자료형 (순서O, 중복O, 수정X)
@@ -74,6 +81,7 @@
     - set (집합) : 순서가 없고, 중복을 허용하지 않는 값들의 모임 (순서X, 중복X, 수정O)
     - dict (사전) : 순서가 없고, 반드시 키를 사용하여 원소에 접근 (순서X, 중복X, 수정O)
 
+<br/>
 
 #### 군집 자료형 비교
 ||List|Tuple|Set|Dictionary|
@@ -84,11 +92,59 @@
 |예시|[1, 2, 3]|(1, 2, 3)|{1, 2, 3}|{'a' : 1, 'b' : 2, 'c' : 3}|
 |주요 특징|index를 지정하여 값 변경 가능|수정이 불가능하지만 속도가 빠름|List의 중복값 삭제용으로 주로 사용|Key와 Value로 구성|
 
+<br/>
 
-## 내장함수 외장함수 사용자정의함수
+## 4. 함수의 종류
+
+#### 내장함수
+- 파이썬 인터프리터에서 기본적으로 포함하고 있는 함수
+- import를 필요로 하지 않음
+- 내장함수 목록
+    - abs(), all(), any(), ascii()
+    - bin(), bool(), breakpoint(), bytearray(), bytes()
+    - callable(), chr(), classmethod(), compile(), complex()
+    - delattr(), dict(), dir(), divmod()
+    - enumerate(), eval(), exec()
+    - filter(), float(), format(), frozenset()
+    - getattr(), globals(), hasattr(), hash(), help(), hex()
+    - id(), input(), int(), isinstance(), issubclass(), iter()
+    - len(), list(), locals()
+    - memoryview(), min(), map(), max(), next()
+    - object(), oct(), open(), ord()
+    - pow(), print(), property()
+    - range(), repr(), reversed(), round()
+    - set(), setattr(), slice(), sorted(), staticmethod(), str(), sum(), super()
+    - tuple(), type()
+    - vars()
+    - zip()
+    - __import__()
+
+<br/>
+
+#### 외장함수
+- import 문을 사용하여 외부의 라이브러리에서 제공하는 함수
+- 파이썬 기본 라이브러리들은 파이썬 설치 시 자동으로 설치
+- 기본 라이브러리 목록
+    - Sys : 파이썬 인터프리터가 제공하는 변수들과 함수들을 직접 제어할 수 있게 해주는 모듈.
+    - Pickle : 객체의 형태를 그대로 유지하면서 파일에 저장하고 불러올 수 있게 하는 모듈.
+    - Os : 환경 변수나 디렉터리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈.
+    - Shutil : 파일을 복사해 주는 파이썬 모듈.
+    - Glob: 특정 디렉터리에 있는 파일 이름 모두를 알아야 할 때 사용하는 모듈. 디렉터리 내의 파일들을 읽어서 리스트로 리턴.
+    - Tempfile: 파일을 임시로 만들어서 사용할 때 유용한 모듈.
+    - Time: 시간과 관련 모듈.
+    - Calendar: 파이썬에서 달력을 볼 수 있게 해주는 모듈.
+    - Random: 난수(규칙이 없는 임의의 수)를 발생시키는 모듈.
+    - Webbrowser: 자신의 시스템에서 사용하는 기본 웹 브라우저가 자동으로 실행되게 하는 모듈.
+
+<br/>
+
+#### 사용자 정의함수
+- def 문을 사용해서 사용자가 직접 정의하는 함수
 
 
-## 메소드와 함수 차이
+<br/>
+
+## 5. 메소드와 함수
 
 
 ## SpringBoot request 처리 과정
@@ -115,3 +171,8 @@
 
 # 참조 사이트
 - https://leonkong.cc/posts/python-deque.html
+- http://www.ktword.co.kr/test/view/view.php?m_temp1=5926
+- https://artist-developer.tistory.com/22
+- https://daco2020.tistory.com/60
+- https://cording-artist.tistory.com/124
+- https://sdc-james.gitbook.io/onebook/3./3.6./3.6.1.
