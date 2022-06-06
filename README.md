@@ -165,9 +165,6 @@
 ## SQL 서브쿼리
 
 
-# 사진 출처
-- 1. 스택과 큐 : 
-    - https://seill.tistory.com/576
 
 # 참조 사이트
 - https://leonkong.cc/posts/python-deque.html
@@ -176,3 +173,10 @@
 - https://daco2020.tistory.com/60
 - https://cording-artist.tistory.com/124
 - https://sdc-james.gitbook.io/onebook/3./3.6./3.6.1.
+
+
+<br/>
+
+# 사진 출처
+- [1. 스택과 큐] : 
+    - https://seill.tistory.com/576
