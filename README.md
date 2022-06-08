@@ -302,17 +302,17 @@
 
 #### 디자인 패턴 분류
 
-##### GoF 디자인 패턴
-- Gof :
-    - 소프트웨어 개발 영역에서 디자인 패턴을 구체화하고 체계화한 사람들
-    - 23가지의 디자인 패턴을 정리하고 각각의 디자인 패턴을 생성(Creational), 구조(Structural), 행위(Behavioral) 3가지로 분류했다.
-    - GoF(Gang of Fout)라 불리는 사람들 :
-        - 에리히 감마(Erich Gamma)
-        - 리차드 헬름(Richard Helm)
-        - 랄프 존슨(Ralph Johnson)
-        - 존 블리시디스(John Vissides)
+- GoF 디자인 패턴
+    - Gof 란? :
+        - 소프트웨어 개발 영역에서 디자인 패턴을 구체화하고 체계화한 사람들
+        - 23가지의 디자인 패턴을 정리하고 각각의 디자인 패턴을 생성(Creational), 구조(Structural), 행위(Behavioral) 3가지로 분류했다.
+        - GoF(Gang of Fout)라 불리는 사람들 :
+            - 에리히 감마(Erich Gamma)
+            - 리차드 헬름(Richard Helm)
+            - 랄프 존슨(Ralph Johnson)
+            - 존 블리시디스(John Vissides)
 
-##### GoF 디자인 패턴 분류
+- GoF 디자인 패턴 분류
 |생성(Creational) 패턴|구조(Structural) 패턴|행위(Behavioral) 패턴|
 |---|---|---|
 |추상 팩토리(Abstract Factory)|어뎁터(Adapter)|책임연쇄(Chain of Responsibility)|
@@ -366,47 +366,45 @@
             - 실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는 재사용성이 높은 클래스를 설계하는 패턴.
 
 
-#### 싱글톤 패턴 (Singleton Pattern)
+#### 싱글톤 패턴 (Singleton Pattern) - 자세히!!!
 - 전역 변수를 사용하지 않고 객체를 하나만 생성 하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴
 
+- 예제
+    - 차가 한개만 존재하여 한개의 차만 사용가능하게 한다면 다음과 같음.
+    ```java
+    public class CarClass {
 
-##### 예제
-- 차가 한개만 존재하여 한개의 차만 사용가능하게 한다면 다음과 같음.
+        // 자신을 멤버로 선언 후 메모리에 올리기
+        private static CarClass car = new CarClass();
 
-```java
-public class CarClass {
+        // 외부에서 맴버로 선언된 객체 car를 가져올 수 있는 method
+        public static CarClass getInstance() {
+            return car;
+        }
 
-    // 자신을 멤버로 선언 후 메모리에 올리기
-    private static CarClass car = new CarClass();
+        // 차 사용 여부 초기 값
+        private static boolean isUse = false;
 
-    // 외부에서 맴버로 선언된 객체 car를 가져올 수 있는 method
-    public static CarClass getInstance() {
-        return car;
+        // 차 사용 시작
+        public static void startCar() {
+            isUse = true;
+
+            System.out.println("start using car")
+        }
+
+        // 차 사용 종료
+        public static void stopCar() {
+            isUse = false;
+            System.out.println("stop using car")
+        }
+
+        // 차 사용 여부 확인
+        public static boolean isEnableUseCar() {
+            return !isUse;
+        }
+
     }
-
-    // 차 사용 여부 초기 값
-    private static boolean isUse = false;
-
-    // 차 사용 시작
-    public static void startCar() {
-        isUse = true;
-
-        System.out.println("start using car")
-    }
-
-    // 차 사용 종료
-    public static void stopCar() {
-        isUse = false;
-        System.out.println("stop using car")
-    }
-
-    // 차 사용 여부 확인
-    public static boolean isEnableUseCar() {
-        return !isUse;
-    }
-
-}
-```
+    ```
 
 <br/>
 
