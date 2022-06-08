@@ -668,8 +668,8 @@ FROM <첫 번째 테이블>
 ```SQL
 SELECT <열 목록>
 FROM <테이블> 별칭A
-        INNER JOIN <테이블> 별칭B
-        ON <조인될 조건>
+    (INNER) JOIN <테이블> 별칭B
+    ON <조인될 조건>
 [WHERE 검색 조건]
 ```
 
@@ -677,6 +677,57 @@ FROM <테이블> 별칭A
 
 ## 11. SQL - 서브쿼리
 
+#### 정의
+- SELECT 쿼리문 안에 포함 되어있는 또 하나의 별도 SELECT 쿼리문
+
+<br/>
+
+#### 특징
+- 여러 번의 Select문을 수행하여 얻을 수 있는 결과를 서브쿼리를 이용하여 하나의 쿼리로 결과를 얻을 수 있음.
+- 메인쿼리가 서브쿼리를 포함하는 종속적인 관계가 있고 메인쿼리보다 먼저 실행됨.
+- 사용할 때는 () 괄호를 잘 묶어줘야 함.
+- 서브쿼리 안에서 Order by 절은 사용할 수 없다.
+- SELECT, FROM, WHERE, HAVING, ORDER BY, INSERT VALUES절, UPDATE SET절에서 사용할 수 있다.
+
+<br/>
+
+#### 사용법
+
+```SQL
+SELECT * 
+    FROM [테이블 A]
+    WHERE [컬럼 명] [단일 행 연산자] (SELECT [컬럼명] FROM [테이블 B] WHERE [조건절])
+```
+<br/>
+
+#### 예시
+
+```SQL
+/* 테이블 예시 */
+tb_Student 테이블
+tb_StudentInfo 테이블
+
+---------------------------------------------------------
+tb_Student 테이블		tb_StudentInfo 테이블
+ID	NAME 				S_ID	S_WEIGHT
+1	정균				1	  80
+2	산랑				2	  90
+3	승냥				3	  100
+4	겸모				4	  110
+---------------------------------------------------------
+
+/* 단일 행 서브쿼리 */
+SELECT ID, NAME
+	FROM TB_Student
+    	WHERE ID = (SELECT S_ID 
+    		FROM tb_StudentInfo
+                WHERE S_WEIGHT < 90)
+                
+/* 결과 값 */
+tb_Student
+ID	NAME
+1	정균
+```
 
 <br/>
 
@@ -711,6 +762,8 @@ FROM <테이블> 별칭A
     - https://aws.amazon.com/ko/what-is/api/
 - [10. SQL - JOIN의 종류] :
     - https://hongong.hanbit.co.kr/sql-기본-문법-joininner-outer-cross-self-join/
+- [11. SQL - 서브쿼리] :
+    - https://jeongkyun-it.tistory.com/38
 
 <br/>
 
@@ -730,3 +783,7 @@ FROM <테이블> 별칭A
 # 코드 출처
 - [8. 디자인 패턴] :
     - https://devmoony.tistory.com/43
+- [10. SQL - JOIN의 종류] :
+    - https://hongong.hanbit.co.kr/sql-기본-문법-joininner-outer-cross-self-join/
+- [11. SQL - 서브쿼리] :
+    - https://jeongkyun-it.tistory.com/38
