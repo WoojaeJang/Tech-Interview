@@ -313,6 +313,7 @@
             - 존 블리시디스(John Vissides)
 
 - GoF 디자인 패턴 분류
+
 |생성(Creational) 패턴|구조(Structural) 패턴|행위(Behavioral) 패턴|
 |---|---|---|
 |추상 팩토리(Abstract Factory)|어뎁터(Adapter)|책임연쇄(Chain of Responsibility)|
