@@ -696,7 +696,9 @@ FROM <테이블> 별칭A
 ```SQL
 SELECT * 
     FROM [테이블 A]
-    WHERE [컬럼 명] [단일 행 연산자] (SELECT [컬럼명] FROM [테이블 B] WHERE [조건절])
+    WHERE [컬럼 명] [단일 행 연산자] (SELECT [컬럼명] 
+        FROM [테이블 B] 
+        WHERE [조건절])
 ```
 <br/>
 
