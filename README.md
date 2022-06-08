@@ -284,6 +284,129 @@
 
 ## 8. 디자인 패턴
 
+#### 디자인 패턴 개념
+- 소프트웨어를 설계할 때 특정 맥락에서 자주 발생하는 고질적인 문제들이 또 발생했을 때 재사용할 할 수있는 훌륭한 해결책
+- “바퀴를 다시 발명하지 마라(Don’t reinvent the wheel)”
+이미 만들어져서 잘 되는 것을 처음부터 다시 만들 필요가 없다는 의미이다.
+
+#### 디자인 패턴 구조
+- 콘텍스트(context)
+    - 문제가 발생하는 여어 상황을 기술. 즉, 패턴이 적용될 수 있는 상황을 나타냄.
+    - 경우에 따라서는 패턴이 유용하지 못한 상황을 나타내기도 함.
+- 문제(problem)
+    - 패턴이 적용되어 해결될 필요가 있는 여러 디자인 이슈들을 기술.
+    - 이때 여러 제약 사항과 영향력도 문제 해결을 위해 고려해야 함.
+- 해결(solution)
+    - 문제를 해결하도록 설계를 구성하는 요소들과 그 요소들 사이의 관계, 책임, 협력 관계를 기술.
+    - 해결은 반드시 구체적인 구현 방법이나 언어에 의존적이지 않으며 다양한 상황에 적용할 수 있는 일종의 템플릿.
+
+#### 디자인 패턴 분류
+
+##### GoF 디자인 패턴
+- Gof :
+    - 소프트웨어 개발 영역에서 디자인 패턴을 구체화하고 체계화한 사람들
+    - 23가지의 디자인 패턴을 정리하고 각각의 디자인 패턴을 생성(Creational), 구조(Structural), 행위(Behavioral) 3가지로 분류했다.
+    - GoF(Gang of Fout)라 불리는 사람들 :
+        - 에리히 감마(Erich Gamma)
+        - 리차드 헬름(Richard Helm)
+        - 랄프 존슨(Ralph Johnson)
+        - 존 블리시디스(John Vissides)
+
+##### GoF 디자인 패턴 분류
+|생성(Creational) 패턴|구조(Structural) 패턴|행위(Behavioral) 패턴|
+|---|---|---|
+|추상 팩토리(Abstract Factory)|어뎁터(Adapter)|책임연쇄(Chain of Responsibility)|
+|빌더(Builder)|브리지(Brdige)|커맨드(Command)|
+|팩토리 메서드(Factory Method)|컴퍼지트(Composite)|인터프리터(Interpreter)|
+|프로토타입(Prototype)|데커레이터(Decorator)|이터레이터(Iterator)|
+|싱글턴(Singleton)|퍼사드(Facade)|미디에이터(Mediator)|
+||플라이웨이트(Flyweight)|메멘토(Memento)|
+||프록시(Proxy)|옵서버(Observer)|
+|||스테이트(State)|
+|||스트래티지(Strategy)|
+|||템플릿 메서드(Template Method)|
+|||비지터(Visitor)|
+
+1. 생성(Creational) 패턴
+    - 객체 생성에 관련된 패턴
+    - 객체의 생성과 조합을 캡슐화해 특정 객체가 생성되거나 변경되어도 프로그램 구조에 영향을 크게 받지 않도록 유연성을 제공함.
+
+    - 주요 패턴
+        1. 추상 팩토리(Abstract Factory)
+            - 구제적인 클래스에 의존하지 않고 서로 연관되거나 의존적인 객체들의 조합을 만드는 인터페이스를 제공하는 패턴.
+        2. 팩토리 메서드(Factory Method)
+            - 객체 생성 처리를 서브 클래스로 분리해 처리하도록 캡슐화하는 패턴.
+        3. 싱글턴(Singleton)
+            - 전역 변수를 사용하지 않고 객체를 하나만 생성하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴.
+
+2. 구조(Structural) 패턴
+    - 클래스나 객체를 조합해 더 큰 구조를 만드는 패턴.
+    - 예를 들어 서로 다른 인터페이스를 지닌 2개의 객체를 묶어 단일 인터페이스를 제공하거나 객체들을 서로 묶어 새로운 기능을 제공하는 패턴.
+
+    - 주요 패턴
+        1. 컴퍼지트(Composite)
+            - 여러 개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구별 없이 다루게 해주는 패턴.
+        2. 데커레이터(Decorator)
+            - 객체의 결합을 통해 기능을 동적으로 유연하게 확장할 수 있게 해주는 패턴.
+
+3. 행위(Behavioral)
+    - 객체나 클래스 사이의 알고리즘이나 책임 분배에 관련된 패턴
+    - 한 객체가 혼자 수행할 수 없는 작업을 여러 개의 객체로 어떻게 분배하는지, 또 그렇게 하면서도 객체 사이의 결합도를 최소화하는 것에 중점을 둠.
+
+    - 주요 패턴
+        1. 옵서버(Observer)
+            - 한 객체의 상태 변화에 따라 다른 객체의 상태도 연동되도록 일대다 객체 의존 관계를 구성하는 패턴.
+        2. 스테이트(State)
+            - 객체의 상태에 따라 객체의 행위 내용을 변경해주는 패턴.
+        3. 스트래티지(Strategy)
+            - 행위를 클래스로 캡슐화해 동적으로 행위를 자유롭게 바꿀 수 있게 해주는 패턴.
+        4. 템플릿 메서드(Template Method)
+            - 어떤 작업을 처리하는 일부분을 서브 클래스로 캡슐화해 전체 일을 수행하는 구조는 바꾸지 않으면서 특정 단계에서 수행하는 내역을 바꾸는 패턴.
+        5. 커맨드(Command)
+            - 실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는 재사용성이 높은 클래스를 설계하는 패턴.
+
+
+#### 싱글톤 패턴 (Singleton Pattern)
+- 전역 변수를 사용하지 않고 객체를 하나만 생성 하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴
+
+
+##### 예제
+- 차가 한개만 존재하여 한개의 차만 사용가능하게 한다면 다음과 같음.
+
+```java
+public class CarClass {
+
+    // 자신을 멤버로 선언 후 메모리에 올리기
+    private static CarClass car = new CarClass();
+
+    // 외부에서 맴버로 선언된 객체 car를 가져올 수 있는 method
+    public static CarClass getInstance() {
+        return car;
+    }
+
+    // 차 사용 여부 초기 값
+    private static boolean isUse = false;
+
+    // 차 사용 시작
+    public static void startCar() {
+        isUse = true;
+
+        System.out.println("start using car")
+    }
+
+    // 차 사용 종료
+    public static void stopCar() {
+        isUse = false;
+        System.out.println("stop using car")
+    }
+
+    // 차 사용 여부 확인
+    public static boolean isEnableUseCar() {
+        return !isUse;
+    }
+
+}
+```
 
 <br/>
 
@@ -307,17 +430,31 @@
 
 
 # 참조 사이트
-- https://leonkong.cc/posts/python-deque.html
-- http://www.ktword.co.kr/test/view/view.php?m_temp1=5926
-- https://artist-developer.tistory.com/22
-- https://daco2020.tistory.com/60
-- https://cording-artist.tistory.com/124
-- https://sdc-james.gitbook.io/onebook/3./3.6./3.6.1.
-- https://jeong-pro.tistory.com/96
-- https://jongmin92.github.io/2018/03/12/Spring/spring-mvc/
-- https://velog.io/@seongwon97/MVC-패턴이란
-- https://velog.io/@jh8579/Spring-Request-처리-과정
-- https://llmooon.github.io/spring/Spring-MVC-구조와-처리-과정
+- [1. 스택과 큐] :
+    - https://github.com/WoojaeJang/AlgorithmStudy-Step1-DataStructure/blob/main/notes_md/week01.md
+- [2. Deque] :
+    - https://leonkong.cc/posts/python-deque.html
+- [3. 자료형 종류] :
+    - http://www.ktword.co.kr/test/view/view.php?m_temp1=5926
+    - https://artist-developer.tistory.com/22
+    - https://cording-artist.tistory.com/124    
+    - https://daco2020.tistory.com/60
+- [4. 함수의 종류] :
+    - https://sdc-james.gitbook.io/onebook/3./3.6./3.6.1.
+- [5. 메소드와 함수] :
+    - https://tali.tistory.com/1739
+    - https://bskyvision.com/782
+    - https://velog.io/@yejin20/Python-함수와-메소드의-차이점
+- [6. MVC 패턴] :
+    - https://velog.io/@seongwon97/MVC-패턴이란
+- [7. Spring MVC] :
+    - https://jeong-pro.tistory.com/96
+    - https://jongmin92.github.io/2018/03/12/Spring/spring-mvc/
+    - https://velog.io/@jh8579/Spring-Request-처리-과정
+    - https://llmooon.github.io/spring/Spring-MVC-구조와-처리-과정
+- [8. 디자인 패턴] :
+    - https://gmlwjd9405.github.io/2018/07/06/design-pattern.html
+    - https://devmoony.tistory.com/43
 
 <br/>
 
@@ -331,3 +468,7 @@
     - https://gmlwjd9405.github.io/2018/12/20/spring-mvc-framework.html
     - https://jongmin92.github.io/2018/03/12/Spring/spring-mvc/
     - https://llmooon.github.io/spring/Spring-MVC-구조와-처리-과정
+
+# 코드 출처
+- [8. 디자인 패턴] :
+    - https://devmoony.tistory.com/43
